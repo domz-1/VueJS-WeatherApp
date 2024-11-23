@@ -2,7 +2,7 @@
 
 A modern weather application built with Vue 3 and TailwindCSS, featuring a beautiful dark-mode design with real-time weather updates.
 
-![image](https://github.com/user-attachments/assets/4b5776af-9233-4aa9-9579-98e94f539410)
+!![image](https://github.com/user-attachments/assets/dcb21254-2e8b-4281-af06-a16f3cffdddd)
 
 
 [Live Demo](https://domz-vue-weather.netlify.app/) | [Design Template](https://www.figma.com/community/file/1146122842503202521)
