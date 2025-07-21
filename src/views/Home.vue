@@ -9,7 +9,7 @@ const weatherStore = useWeatherStore();
 
 <template>
     <div class="home flex flex-col justify-center items-center h-full container max-w-[1400px] mb-10">
-        <p class="text-white text-[40px] font-medium text-center mt-[90px]">
+        <p class="text-white text-[40px] font-medium text-center mt-[40px]">
             Seeing the weather of the whole world <br />
             with
             <span

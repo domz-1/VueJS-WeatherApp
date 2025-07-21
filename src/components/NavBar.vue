@@ -13,7 +13,7 @@ const toggleMenu = () => {
     <div class="navbar-wrapper m-4 rounded-3xl">
         <div class="navbar container px-4 md:px-[40px] py-4 md:py-[20px] max-w-[1400px]">
             <div class="flex justify-between items-center">
-                <div class="logo text-xl md:text-[40px] font-semibold text-white">
+                <div class="logo text-base md:text-[24px] font-semibold text-white">
                     <RouterLink to="/" class="text-white">
                         Dark Weather
                     </RouterLink>
@@ -29,15 +29,15 @@ const toggleMenu = () => {
                 </button>
 
                 <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center gap-[50px]">
-                    <div class="links flex flex-row text-white text-lg md:text-[25px] gap-4 md:gap-[50px]">
+                <div class="hidden md:flex items-center gap-[40px]">
+                    <div class="links flex flex-row text-white text-sm md:text-[16px] gap-4 md:gap-[40px]">
                         <RouterLink to="/">Home</RouterLink>
                         <RouterLink to="/download">Download App</RouterLink>
                         <RouterLink to="/contact">Contact us</RouterLink>
                     </div>
                     <div class="signup">
                         <RouterLink to="/signup"
-                            class="text-white bg-[#416a80] text-lg md:text-[25px] rounded-lg px-4 md:px-[20px] py-2 md:py-[10px]">
+                            class="text-white bg-[#416a80] text-sm md:text-[16px] rounded-lg px-4 md:px-[16px] py-2 md:py-[8px]">
                             Sign Up
                         </RouterLink>
                     </div>
@@ -46,7 +46,7 @@ const toggleMenu = () => {
 
             <!-- Mobile Navigation -->
             <div v-if="isMenuOpen" class="md:hidden mt-4">
-                <div class="flex flex-col text-white text-lg gap-4">
+                <div class="flex flex-col text-white text-sm gap-4">
                     <RouterLink to="/" @click="toggleMenu">Home</RouterLink>
                     <RouterLink to="/download" @click="toggleMenu">Download App</RouterLink>
                     <RouterLink to="/contact" @click="toggleMenu">Contact us</RouterLink>
