@@ -99,11 +99,20 @@ const transformStyle = computed(() => ({
     transition: isHovering.value ? 'none' : `transform ${props.transitionSpeed}s ease-out`
 }));
 
-const weatherIcons = {
-    Sunny,
-    Cloudy,
-    Rainy,
-};
+// Determine weather icon based on weather description
+const getWeatherIcon = computed(() => {
+    const weatherLower = props.weather.toLowerCase();
+    if (weatherLower.includes('sunny') || weatherLower.includes('clear')) {
+        return Sunny;
+    }
+    if (weatherLower.includes('cloud') || weatherLower.includes('overcast')) {
+        return Cloudy;
+    }
+    if (weatherLower.includes('rain') || weatherLower.includes('shower') || weatherLower.includes('drizzle')) {
+        return Rainy;
+    }
+    return Cloudy; // Default fallback
+});
 </script>
 
 <template>
@@ -113,11 +122,11 @@ const weatherIcons = {
         <div class="status w-full flex justify-center">
             <img :src="Shadow" alt="shadow" class="absolute top-[-64px] right-[-67px]">
 
-            <img :src="weatherIcons[weather]" alt="Weather Icon"
+            <img :src="getWeatherIcon" alt="Weather Icon"
                 class="absolute top-[-50px] right-[-12px] h-auto cardImage" :style="{
-                    width: weather === 'Rainy' ? '265px' : '232px',
+                    width: weather.toLowerCase().includes('rain') ? '265px' : '232px',
                     transform: `
-                        ${weather === 'Sunny' ? 'scale(.88)' : 'scale(1)'}
+                        ${weather.toLowerCase().includes('sunny') ? 'scale(.88)' : 'scale(1)'}
                         translateZ(${20 * depth}px)
                     `,
                 }" />

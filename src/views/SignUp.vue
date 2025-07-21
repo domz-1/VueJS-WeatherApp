@@ -1,54 +1,55 @@
-<script>
-export default {
-    name: 'SignUp',
-    data() {
-        return {
-            user: {
-                username: '',
-                password: ''
-            },
-            errors: {
-                username: '',
-                password: ''
-            },
-            isSubmitted: false 
-        }
-    },
-    methods: {
-        validateForm() {
-            let isValid = true;
+<script setup>
+import { ref, reactive } from 'vue'
+import { useRouter } from 'vue-router'
 
-            // Reset errors
-            this.errors.username = '';
-            this.errors.password = '';
+const router = useRouter()
 
-            // Username validation
-            if (!this.user.username.trim()) {
-                this.errors.username = 'Username is required';
-                isValid = false;
-            }
+const user = reactive({
+    username: '',
+    password: ''
+})
 
-            // Password validation
-            if (!this.user.password) {
-                this.errors.password = 'Password is required';
-                isValid = false;
-            }
+const errors = reactive({
+    username: '',
+    password: ''
+})
 
-            return isValid;
-        },
-        handleSubmit() {
-            this.isSubmitted = true; // Set submission flag
+const isSubmitted = ref(false)
 
-            if (this.validateForm()) {
-                this.$router.push('/');
-            }
-        }
+const validateForm = () => {
+    let isValid = true
+
+    // Reset errors
+    errors.username = ''
+    errors.password = ''
+
+    // Username validation
+    if (!user.username.trim()) {
+        errors.username = 'Username is required'
+        isValid = false
+    }
+
+    // Password validation
+    if (!user.password) {
+        errors.password = 'Password is required'
+        isValid = false
+    }
+
+    return isValid
+}
+
+const handleSubmit = () => {
+    isSubmitted.value = true // Set submission flag
+
+    if (validateForm()) {
+        router.push('/')
     }
 }
 </script>
 
 <template>
-    <form action="" method="get" class="flex flex-col gap-4 relative mt-32 w-full max-w-md mx-auto">
+    <form action="" method="get"
+        class="flex flex-col gap-4 relative mt-32 w-full max-w-md mx-auto scale-75 sm:scale-100">
         <h1 class="text-4xl text-white font-bold text-center mb-4">Sign Up</h1>
 
         <div class="relative">
