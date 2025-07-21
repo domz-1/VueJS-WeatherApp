@@ -33,13 +33,5 @@ const weatherStore = useWeatherStore();
 </template>
 
 <style scoped>
-.search-section {
-    width: 100%;
-}
 
-@media (max-width: 768px) {
-    .search-section {
-        padding: 0 20px;
-    }
-}
 </style>
